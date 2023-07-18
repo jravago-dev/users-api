@@ -57,11 +57,15 @@
 
 I recently studied FastAPI and followed <a href="https://www.udemy.com/course/fastapi-the-complete-course/">Eric Roby's Udemy course</a>. I added Docker + MySQL implementation as well.
 
+Howdy, I also added Angular + TailwindCSS for the frontend. 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
+- [![Angular][Angular]][Angular-url]
+- [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
 - [![FastAPI][FastAPI]][FastAPI-url]
 - [![MySQL][MySQL]][MySQL-url]
 
@@ -179,3 +183,7 @@ Project Link: [https://github.com/jravago-dev/users-webapp](https://github.com/j
 [FastAPI-url]: https://fastapi.tiangolo.com/
 [MySQL]: https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white
 [MySQL-url]: https://www.mysql.com/
+[Angular]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[TailwindCSS]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[TailwindCSS-url]: https://tailwindcss.com/

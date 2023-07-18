@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
-  userApi = `http://127.0.0.1:8000`;
+  userApi = `http://localhost:8000`;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -18,3 +18,4 @@ export class AuthService {
     return this.http.post(`${this.userApi}/auth/register`, userDetails);
   }
 }
+//
