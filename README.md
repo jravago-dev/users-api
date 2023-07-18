@@ -103,7 +103,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-- Once the containers are up and running, visit <a href="http://127.0.0.1/docs">127.0.0.1/docs</a> for more information regarding the available endpoints.
+- Once the containers are up and running, visit <a href="http://localhost:8000/docs">http://localhost:8000/docs</a> for more information regarding the available endpoints, and <a href="http://localhost:4200/docs">http://localhost:4200/docs</a> for the web app.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
