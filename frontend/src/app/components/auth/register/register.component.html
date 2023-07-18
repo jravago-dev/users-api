@@ -1,36 +1,84 @@
-<h1>Register for an account:</h1>
-
-<div *ngIf="!isRegistered">
-  <form [formGroup]="registrationForm" (ngSubmit)="handleSubmission()">
-    <label for="emailAddress">Email Address:</label>
-    <input id="emailAddress" type="email" formControlName="emailAddress" />
-
-    <label for="userName">Username:</label>
-    <input id="userName" type="text" formControlName="userName" />
-
-    <label for="userPassword">Password:</label>
-    <input id="userPassword" type="password" formControlName="userPassword" />
-
-    <label for="confirmUserPassword">Confirm Password:</label>
-    <input
-      id="confirmUserPassword"
-      type="password"
-      formControlName="confirmUserPassword"
-    />
-
-    <button [disabled]="!registrationForm.valid">Submit</button>
-    <button>Cancel</button>
-  </form>
-
-  <span
-    *ngIf="
-    registrationForm.get('confirmUserPassword')?.touched &&
-    registrationForm.get('confirmUserPassword')?.errors?.['notMatched']
-  "
-    >Passwords doesn't match.</span
-  >
-</div>
-
 <div>
-  <p>{{ registrationResponse.message }}</p>
+  <form [formGroup]="registrationForm" (ngSubmit)="handleSubmission()">
+    <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+      <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+        <div class="text-gray-600">
+          <p class="font-medium text-lg">Users - Web APP</p>
+          <p>Register a new account</p>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+            <div class="md:col-span-5">
+              <label for="emailAddress">Email Address:</label>
+
+              <input
+                id="emailAddress"
+                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                type="email"
+                formControlName="emailAddress"
+              />
+            </div>
+
+            <div class="md:col-span-5">
+              <label for="userName">Username:</label>
+              <input
+                id="userName"
+                type="text"
+                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                formControlName="userName"
+              />
+            </div>
+
+            <div class="md:col-span-5">
+              <label for="userPassword">Password:</label>
+              <input
+                id="userPassword"
+                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                type="password"
+                formControlName="userPassword"
+              />
+            </div>
+
+            <div class="md:col-span-5">
+              <label for="confirmUserPassword">Confirm Password:</label>
+              <input
+                id="confirmUserPassword"
+                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                type="password"
+                formControlName="confirmUserPassword"
+              />
+            </div>
+
+            <div
+              class="md:col-span-5"
+              *ngIf="
+            registrationForm.get('confirmUserPassword')?.touched &&
+            registrationForm.get('confirmUserPassword')?.errors?.['notMatched']
+          "
+            >
+              <p>Password fields do not match.</p>
+            </div>
+
+            <div class="md:col-span-5">
+              <p>{{ registrationResponse.message }}</p>
+            </div>
+
+            <div class="md:col-span-5 text-right">
+              <div class="inline-flex items-end">
+                <button
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  [disabled]="!registrationForm.valid"
+                  [hidden]="isRegistered"
+                >
+                  Submit
+                </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

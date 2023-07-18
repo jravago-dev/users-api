@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,11 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   isRegistered: boolean = false;
   registrationResponse: any = {};
@@ -25,6 +30,10 @@ export class RegisterComponent implements OnInit {
       next: (response) => {
         this.registrationResponse = response;
         this.isRegistered = true;
+
+        setTimeout(() => {
+          this.router.navigateByUrl('/auth/login');
+        }, 5000); // Redirect after 5s
       },
       error: (response) => {
         this.registrationResponse.message = response.error.detail;
@@ -35,6 +44,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationForm.valueChanges.subscribe((form) => {
+      this.registrationResponse.message = '';
       const providedPassword = form.userPassword;
       const providedConfirmPassword = form.confirmUserPassword;
 
