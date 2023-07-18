@@ -1,0 +1,36 @@
+<h1>Register for an account:</h1>
+
+<div *ngIf="!isRegistered">
+  <form [formGroup]="registrationForm" (ngSubmit)="handleSubmission()">
+    <label for="emailAddress">Email Address:</label>
+    <input id="emailAddress" type="email" formControlName="emailAddress" />
+
+    <label for="userName">Username:</label>
+    <input id="userName" type="text" formControlName="userName" />
+
+    <label for="userPassword">Password:</label>
+    <input id="userPassword" type="password" formControlName="userPassword" />
+
+    <label for="confirmUserPassword">Confirm Password:</label>
+    <input
+      id="confirmUserPassword"
+      type="password"
+      formControlName="confirmUserPassword"
+    />
+
+    <button [disabled]="!registrationForm.valid">Submit</button>
+    <button>Cancel</button>
+  </form>
+
+  <span
+    *ngIf="
+    registrationForm.get('confirmUserPassword')?.touched &&
+    registrationForm.get('confirmUserPassword')?.errors?.['notMatched']
+  "
+    >Passwords doesn't match.</span
+  >
+</div>
+
+<div>
+  <p>{{ registrationResponse.message }}</p>
+</div>
